@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>纪念张雪峰</title>
+  <meta name="description" content="谨以此页，纪念张雪峰老师。" />
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --panel: rgba(255,255,255,0.06);
+      --panel-strong: rgba(255,255,255,0.09);
+      --text: #f3f5f8;
+      --muted: #bcc4d0;
+      --line: rgba(255,255,255,0.12);
+      --accent: #d5b071;
+      --accent-soft: rgba(213,176,113,0.15);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top, rgba(213,176,113,0.14), transparent 35%),
+        linear-gradient(180deg, #0a0c10 0%, #11151c 45%, #0b0d12 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 56px 0 40px;
+    }
+
+    .hero-card {
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(213,176,113,0.08), transparent 40%, transparent 60%, rgba(255,255,255,0.04));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      padding: 72px 28px 52px;
+      text-align: center;
+    }
+
+    .mark {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 24px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 36px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(213,176,113,0.28);
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.04em;
+      font-weight: 750;
+    }
+
+    .sub {
+      width: min(700px, 100%);
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 19px);
+    }
+
+    .quote {
+      width: min(760px, 100%);
+      margin: 30px auto 0;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      text-align: left;
+      color: #eef1f5;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 24px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .two { grid-column: span 6; }
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.clean li {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    ul.clean li:first-child { border-top: 0; }
+
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 34px;
+      margin-bottom: 18px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(213,176,113,0.15);
+    }
+
+    .year {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .tribute-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px;
+      font: inherit;
+      color: var(--text);
+      background: rgba(8, 10, 14, 0.7);
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: rgba(213,176,113,0.45);
+      box-shadow: 0 0 0 4px rgba(213,176,113,0.12);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+
+    .primary {
+      background: linear-gradient(180deg, #e0bf87, #c89d58);
+      color: #23180a;
+      font-weight: 700;
+    }
+
+    .ghost {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .status {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+      min-height: 22px;
+    }
+
+    footer {
+      padding: 28px 0 56px;
+      text-align: center;
+      color: #98a3b3;
+      font-size: 14px;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #98a3b3;
+    }
+
+    @media (max-width: 760px) {
+      .hero-inner { padding: 56px 20px 38px; }
+      .two { grid-column: span 12; }
+      .card { padding: 20px; }
+      .quote { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div class="mark">烛</div>
+          <div class="eyebrow">In Memory</div>
+          <h1>纪念张雪峰</h1>
+          <p class="sub">
+            谨以此页，纪念一位曾经为无数学生与家庭提供方向感的人。
+            无论外界如何评价，他都曾真实地影响过很多人的人生选择。
+          </p>
+          <div class="quote">
+            “有些人留下的，不只是观点；
+            也是在很多人迷茫时，曾经被照亮过的一段路。”
+          </div>
+          <div class="meta">
+            <div class="pill">教育话题公众人物</div>
+            <div class="pill">志愿填报与升学规划</div>
+            <div class="pill">影响过许多普通家庭</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="grid">
+        <article class="card two">
+          <h2>他被许多人记住的原因</h2>
+          <ul class="clean">
+            <li>用很直接的方式，把复杂的升学与专业信息讲给普通家庭听懂。</li>
+            <li>让很多原本信息匮乏的家长，第一次开始认真理解专业、院校和就业之间的关系。</li>
+            <li>他的话未必总是温和，但常常足够清晰，足以让人停下来思考现实。</li>
+            <li>在理想与生存之间，他长期站在“先帮普通人避坑”的那一边。</li>
+          </ul>
+        </article>
+
+        <article class="card two">
+          <h2>谨慎而诚实地看待他的影响</h2>
+          <p>
+            他是一位有争议的人物，这恰恰说明他不是没有重量的声音。
+            有人觉得他太功利，也有人因为他而少走很多弯路。
+            但不管站在哪一边，都很难否认：他确实参与了很多家庭关于未来、专业、就业与阶层流动的讨论。
+          </p>
+          <p class="small">
+            这页更关注“纪念与影响”，而不是替任何观点做最终裁决。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid">
+        <article class="card">
+          <h2>简要时间线</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="year">早年</div>
+              <div>从普通家庭背景一路走出来，后来进入教育培训与升学规划相关领域。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="year">走入公众视野</div>
+              <div>以鲜明、直接、极具辨识度的表达风格被广泛认识，逐渐成为升学规划话题中的代表性人物。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="year">影响扩大</div>
+              <div>围绕高考志愿、考研、专业选择、就业现实等议题，持续影响广大家长与学生的决策。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="year">今天</div>
+              <div>人会离开，但许多人曾经因此多知道了一点信息，多拥有了一点确定性。</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid">
+        <article class="card two">
+          <h2>如果你想纪念他</h2>
+          <ul class="clean">
+            <li>认真地帮一个正在迷茫的学生，做一次信息清晰、诚实、不敷衍的建议。</li>
+            <li>提醒身边的人：选专业、选路，不只是看名头，也要看真实生活。</li>
+            <li>别把“现实”当成冷酷，很多时候，现实也是一种保护。</li>
+          </ul>
+        </article>
+
+        <article class="card two">
+          <h2>写一段想说的话</h2>
+          <div class="tribute-box">
+            <textarea id="tribute" placeholder="在这里写下你的纪念、感谢、感想。内容只会保存在你当前浏览器里。"></textarea>
+            <div class="actions">
+              <button class="primary" id="saveBtn">保存到本地浏览器</button>
+              <button class="ghost" id="copyBtn">复制文字</button>
+              <button class="ghost" id="clearBtn">清空</button>
+            </div>
+            <div class="status" id="status"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div>谨以此页，献给那些曾被他影响、被他提醒、或被他陪伴过选择的人。</div>
+    <div class="small" style="margin-top:8px;">页面为本地静态网页，可继续按你的想法修改文案、颜色、照片与署名。</div>
+  </footer>
+
+  <script>
+    const key = 'zhangxuefeng-memorial-tribute';
+    const tribute = document.getElementById('tribute');
+    const status = document.getElementById('status');
+
+    tribute.value = localStorage.getItem(key) || '';
+
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      localStorage.setItem(key, tribute.value);
+      status.textContent = '已保存到当前浏览器。';
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(tribute.value);
+        status.textContent = '已复制到剪贴板。';
+      } catch {
+        status.textContent = '复制失败，可能是浏览器不允许。你也可以手动全选复制。';
+      }
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      tribute.value = '';
+      localStorage.removeItem(key);
+      status.textContent = '已清空本地内容。';
+    });
+  </script>
+</body>
+</html>
